@@ -1,9 +1,15 @@
+html,body{
+	background-color:#eee;
+}
 
+#chat{
+	padding:20px;
+}
 
 #messages div.message {
     border-bottom: solid #fff 1px;
     padding: 0.7em;
-    font-family: 'Chau Philomene One', sans-serif;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
     height: 58px;
 }
 
