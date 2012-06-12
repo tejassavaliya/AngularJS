@@ -1,13 +1,23 @@
 html,body{
-	background-color:#eee;
+	background-color:#fff;
+}
+
+#logo{
+	margin-bottom:15px;
 }
 
 #chat{
 	padding:20px;
+	width:300px;
+	margin:0 auto 0 auto;
+}
+
+.clearfix{
+	margin-bottom:10px;
 }
 
 #messages div.message {
-    border-bottom: solid #fff 1px;
+    border-bottom: solid #eee 1px;
     padding: 0.7em;
 	font-family:Geneva, Arial, Helvetica, sans-serif;
     height: 58px;
@@ -27,7 +37,7 @@ html,body{
     float: left;
     margin-right: 10px;
     padding: 0px;
-    border: 2px solid #fff;
+    border: 1px solid #eee;
 }
 
 #messages .avatar-frame, .avatar-frame img {
