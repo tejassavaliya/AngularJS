@@ -1,21 +1,58 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="PubNubChat">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
+  <title>AngularJS - PubNub chat</title>
+  <link rel="stylesheet" href="../../common/bootstrap/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="css/app.css"/>
+  <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <div pub-key="pub-8e474368-7add-4283-9b87-caf9efbcdedc" sub-key="sub-1ffec1f3-9463-11e1-9376-77819258e702" ssl="off" origin="pubsub.pubnub.com" id="pubnub"></div>
+  <script src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
-
-  <div ng-view></div>
-
-  <div>Angular seed app: v<span app-version></span></div>
-
-  <script src="lib/angular/angular.js"></script>
+  
+<div ng-controller="MyCtrl">
+    <div class="progress progress-striped active" id="progress_bar">
+        <div class="bar" style="width: 100%;">
+        </div>
+    </div>
+    <div class="well">
+        <b>Status: {{realtimeStatus}} </b>
+        <form class="form-horizontal">
+            <label>
+                Name:
+            </label>
+            <input placeholder="Your Name" type="text" name="username" ng-model="message.username"/>
+            <br/>
+            <label>
+                Email:
+            </label>
+            <input placeholder="Your Email" type="text" name="email" ng-model="message.email"/>
+            <br/>
+            <label>
+                Message:
+            </label>
+            <input placeholder="What's on your mind?" type="text" name="text" ng-model="message.text"/>
+            <button type="submit" ng-click="publish()" class="btn btn-primary">
+                Send
+            </button>
+        </form>
+        <hr/><!-- Message List -->
+        <div id="messages" class="table-striped">
+            <div class="message" ng-repeat="message in messages" cool-fade>
+                <div class="avatar-frame">
+                    <img ng-src="http://www.gravatar.com/avatar/{{message.email}}?s=60&r=R&d=img/img_profile_placeholder.png" class="avatar avatar-60 photo" height="60" width="60"/>
+                </div>
+                <p class="user">
+                    {{message.username}} said:
+                </p>
+                <p class="text">
+                    {{message.text}}
+                </p>
+            </div>
+        </div>
+  <script src="../../common/angular/angular.js"></script>
+  <script src="../../common/bootstrap/js/bootstrap.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
